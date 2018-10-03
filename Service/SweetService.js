@@ -23,8 +23,16 @@ const SweetService = () => {
 
   };
   const getAllOffers = () => {
-    // i'm working on this -- Bjarki
-    return offers;
+
+    let mappedOffers = offers.map((value, index) => { //offers is an array so we map it
+       value.candies = value.candies.map((value, index) => { //because offers contains another array we must also map that array
+        value = candies[index]; // get the correct candy by id
+        return value;
+      });
+      return value;
+    });
+
+    return mappedOffers;
   };
   const getAllPinatas = () => {
 
